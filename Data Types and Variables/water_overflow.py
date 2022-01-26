@@ -6,6 +6,6 @@ for i in range(lines):
     if total + literes <= tank_capacity:
         total += literes
     else:
-        print("Insufficient capacity!")
-
+        print("Insufficient capacity!")      
+         
 print(total)
