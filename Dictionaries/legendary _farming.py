@@ -1,20 +1,16 @@
-import sys
-
-def check_winner():
-    winner = False
-    if dict_keys["shards"] >= 250:
-        winner = True
-        print("Shadowmourne obtained!")
-        dict_keys["shards"] -= 250     
-    elif dict_keys["fragments"] >= 250:
-        winner = True
-        print("Valanyr obtained!")
-        dict_keys["fragments"] -= 250
-    elif  dict_keys["motes"] >= 250:
-        winner = True
-        print("Dragonwrath obtained!")
-        dict_keys["motes"] -= 250
-    return winner
+def check_winner(_dict):
+    for key, value in _dict.items():
+        if value < 250:
+            continue
+        _dict[key] -= 250
+        if key == "shards":
+            print("Shadowmourne obtained!")
+        elif key == "fragments":
+            print("Valanyr obtained!")
+        elif key == "motes":
+            print("Dragonwrath obtained!")
+        return True
+    return False
 
 def order_dict_keys(dict_keys):
     # Order by quantity (value) in descending order, then by name (key) in ascending order
@@ -31,35 +27,28 @@ def print_sorted_dict(sorted_dict):
         print(f"{key}: {value}")
     
            
-dict_keys = {"shards": 0, "fragments": 0, "motes": 0}
+dict_items = {"shards": 0, "fragments": 0, "motes": 0}
 dict_junk = {}
 winner = False
-while True: 
+while not winner: 
     line = input().split()  
     for i in range(0, len(line), 2):
         quantity = int(line[i])
         item = line[i +1].lower()
-        if winner == True:
-          sorted_dict_keys = order_dict_keys(dict_keys)
-          sorted_dict_junk = order_dict_junk(dict_junk)
-          print_sorted_dict(sorted_dict_keys)
-          print_sorted_dict(sorted_dict_junk)
-          sys.exit()
-                          
-        if item == "shards":
-            dict_keys["shards"] += quantity        
-        elif item == "fragments": 
-            dict_keys["fragments"] += quantity
-        elif item == "motes":
-            dict_keys["motes"] += quantity
-        winner = check_winner()
-               
-        if item != "shards" and item != "fragments" and item != "motes":
-         if item not in dict_junk:
-             dict_junk[item] = quantity
-         else:
-             dict_junk[item] += quantity
-    
-
-        
+                       
+        if item in dict_items.keys():
+           dict_items[item] += quantity
+        else:
+            if item not in dict_junk:
+                dict_junk[item] = 0
+            dict_junk[item] += quantity
             
+        winner = check_winner(dict_items)
+        if winner:
+            break
+               
+sorted_dict_items = order_dict_keys(dict_items) # sorting is not included in Judge
+sorted_dict_junk = order_dict_junk(dict_junk)
+print_sorted_dict(sorted_dict_items)
+print_sorted_dict(sorted_dict_junk)      
+          
