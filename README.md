@@ -1,4 +1,4 @@
-# SoftUni Python Fundamentals
+# Software University Python Fundamentals
 
 # Course details
 
