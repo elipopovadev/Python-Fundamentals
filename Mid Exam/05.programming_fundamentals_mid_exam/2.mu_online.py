@@ -36,4 +36,3 @@ if you_are_died == False:
     print(f'Bitcoins: {bitcoins}')
     print(f'Health: {health}')
     
-    
