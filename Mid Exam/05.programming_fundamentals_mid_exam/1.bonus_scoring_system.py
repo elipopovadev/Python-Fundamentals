@@ -12,3 +12,5 @@ max_bonus = max(bonus_student_attendances.keys())
 lectures_for_student = str(bonus_student_attendances[max_bonus])
 print(f'Max Bonus: {max_bonus}.')
 print(f'The student has attended {lectures_for_student} lectures.')
+
+
