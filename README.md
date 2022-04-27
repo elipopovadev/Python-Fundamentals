@@ -1,6 +1,7 @@
+# Python Fundamentals
 ![!](https://user-images.githubusercontent.com/75258625/155037663-66c51696-15b3-417b-80b3-7e4f4eeee339.png)
 
-# Course details
+### Course details
 
 The course "Programming Fundamentals" examines fundamental concepts in programming, which are the basis for effective and quality training in professional modules. The students upgrade their knowledge acquired in the "Programming Basics" course and begin to use more complex programming techniques and structures such as arrays, lists, objects and classes. The students also learn additional technologies that every software developer needs, such as HTML and CSS, HTTP, bitwise operations, and more. The course also examines the basics of web development, which builds in the students an idea of the upcoming professional modules.
 
